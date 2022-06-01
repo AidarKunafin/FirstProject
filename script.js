@@ -1,7 +1,5 @@
 'use strict'
 
-let x = document.querySelector('#root')
-
 let questons = [
     {
         id:1,
@@ -14,21 +12,17 @@ let questons = [
     },
     {
         id:3,
-        title:'Для чего исползуется оператор ||?'
+        title:'Для чего используется оператор ||?'
     }
 ]
 
 function add(id=1){
-    x.insertAdjacentHTML('afterbegin', `<div id=''>${questons[id-1].title}</div>`)
+    root.insertAdjacentHTML('afterbegin', `<div>${questons[id-1].title}</div>`)
+    root.insertAdjacentHTML('beforeend', `<form id="form"></form>`)
+    form.insertAdjacentHTML('beforeend', `<input type="radio" name="answer" style="margin: 30px 20px 20px 0px">${questons[id-1].answer[0]}</input><br>`)
+    form.insertAdjacentHTML('beforeend', `<input type="radio" name="answer" style="margin: 0px 20px 20px 0px">${questons[id-1].answer[1]}</input><br>`)
+    form.insertAdjacentHTML('beforeend', `<input type="radio" name="answer" style="margin: 0px 20px 20px 0px">${questons[id-1].answer[2]}</input><br>`)
+    form.insertAdjacentHTML('beforeend', `<input type="radio" name="answer" style="margin: 0px 20px  0px 0px">${questons[id-1].answer[3]}</input>`)
 }
 
 add()
-// x.outerHTML = '<div>Привет</div>'
-
-// questons.forEach(function(item, index, array){
-//     // x.insertAdjacentHTML('afterbegin', `<div>${item.title}</div>`)
-
-//     // let div = document.createElement('div');
-//     // div.innerHTML = `<div>${item.title}</div>`
-//     // x.append(div)
-// })
