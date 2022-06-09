@@ -4,3 +4,40 @@ body {
     padding: 50px;
     font-size: 30px;
 }
+
+.definition{
+    margin: 50px;
+}
+
+.button{
+    margin-top: 50px;
+    font-size: 25px;
+    width: 150px;
+    height: 50px;
+}
+.button:hover{
+    color: white;
+    background-color: black;
+}
+
+.id{
+    margin-bottom: 20px;
+}
+
+.nextButton{
+    margin-top: 20px;
+    font-size: 25px;
+    width: 250px;
+    height: 50px;
+}
+
+.startButton{
+    margin-top: 20px;
+    font-size: 25px;
+    width: 250px;
+    height: 50px;
+}
+
+.completed {
+    margin-bottom: 30px;
+}
