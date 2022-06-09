@@ -64,8 +64,21 @@ function deleteQuestion(){
     block.remove()
 }
 
+function completedTest(){
+    main.insertAdjacentHTML('beforeend', `<div class= "completed">Тест завершен!</div>`),
+    main.insertAdjacentHTML('beforeend', `<div class= "result">Процент верных ответов ${((right/questons.length)*100).toFixed(1)}%</div>`),
+    main.insertAdjacentHTML('beforeend', `<button class= "startButton" id="startButton">В начало</button>`),
+    startButton.addEventListener('click', start);
+}
+
+function addAnswer(){
+    main.insertAdjacentHTML('afterend', `<div class="answer-block" id="answerBlock">
+                            <div class="definition" id="definition">Верный ответ:${correctAnswer[indexGlobal-1].definition}</div>
+                            <div class="nextButtonBlock"><button class="nextButton" id="nextButton">Следующий вопрос</button></div>
+                            </div>`);
+}
+
 function next(){
-    definition.insertAdjacentHTML('afterend', `<button class="nextButton" id="nextButton">Следующий вопрос</button>`);
     button.disabled = true;
     return nextButton.onclick = function(){
         button.disabled = false;
@@ -74,19 +87,18 @@ function next(){
         } else{
             block.remove()
             button.remove()
-            nextButton.remove()
-            definition.remove()
-            return main.insertAdjacentHTML('beforeend', `<div class= "completed">Тест завершен!</div>`),
-                    main.insertAdjacentHTML('beforeend', `<div class= "result">Процент верных ответов ${((right/questons.length)*100).toFixed(1)}%</div>`),
-                    main.insertAdjacentHTML('beforeend', `<button class= "startButton" id="startButton">В начало</button>`),
-                    startButton.addEventListener('click', start);
+            answerBlock.remove()
+            return completedTest();
 
         }
-        nextButton.remove()
-        definition.remove()
+        answerBlock.remove()
         deleteQuestion()
         add(indexGlobal) 
     }
+}
+
+function start(){
+    window.location.reload()
 }
 
 function e(){
@@ -94,24 +106,21 @@ function e(){
     for (let radio of trueAnswer) {
 		if (radio.checked) {
             if(correctAnswer[indexGlobal-1].answer == radio.value){
-                block.style.backgroundColor = "green";
+                // block.style.backgroundColor = "green";
                 right += 1;
                 if (indexGlobal < questons.length){
                     indexGlobal += 1;
-                } else{
+                }else{
                     block.remove()
                     button.remove()
-                    return main.insertAdjacentHTML('beforeend', `<div class= "completed" id="completed">Тест завершен!</div>`),
-                            main.insertAdjacentHTML('beforeend', `<div class= "result" id="result">Процент верных ответов ${((right/questons.length)*100).toFixed(1)}%</div>`),
-                            main.insertAdjacentHTML('beforeend', `<button class="startButton" id="startButton">В начало</button>`),
-                            startButton.addEventListener('click', start);
+                    return completedTest();
                 }
-                setTimeout(deleteQuestion, 1000)
-                setTimeout(add, 1000, indexGlobal)            
+                setTimeout(deleteQuestion, 100)
+                setTimeout(add, 100, indexGlobal)            
             }else{
-                block.style.backgroundColor = "red";
-                main.insertAdjacentHTML('afterend', `<div class="definition" id="definition">Верный ответ:${correctAnswer[indexGlobal-1].definition}</div>`);
-                next()
+                // block.style.backgroundColor = "red";
+                addAnswer();
+                next();
             }
 		}
 	}
@@ -119,8 +128,6 @@ function e(){
 
 button.addEventListener('click', e)
 
-function start(){
-    window.location.reload()
-}
+
 
 
