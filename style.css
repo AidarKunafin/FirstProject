@@ -51,6 +51,8 @@ body {
     border: 2px solid #000;
     box-shadow: 0 0 5px black;
     background-color: rgb(187, 176, 176);
+    /* min-width: 100%; */
+    min-height: 400px;
 }
 
 .root{
@@ -68,4 +70,42 @@ body {
     border: 5px solid green;
     width: 1000px;
     height: 110px;
+}
+
+.blockBack{
+    width: 250px;
+}
+
+.block{
+    transition: 0.5s;
+}
+
+.start{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.button-string, 
+.button-massive,
+.button-object,
+.button-result{
+    margin: 20px;
+    text-align: center;
+}
+
+.string, 
+.massive,
+.object,
+.result{
+    font-size: 40px;
+    width: 250px;
+    height: 50px;
+}
+.result{
+    font-size: 40px;
+    width: 250px;
+    height: 100px;
+}
+span{
+    line-height: 40px;
 }
