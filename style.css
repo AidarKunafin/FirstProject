@@ -1,5 +1,7 @@
 
-
+h1{
+    font-size: 40px;
+}
 body {
     padding: 50px;
     font-size: 30px;
@@ -53,6 +55,8 @@ body {
     background-color: rgb(187, 176, 176);
     /* min-width: 100%; */
     min-height: 400px;
+    border-radius: 20px;
+    min-width: 960px;
 }
 
 .root{
@@ -89,8 +93,15 @@ body {
 .button-massive,
 .button-object,
 .button-result{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
     margin: 20px;
     text-align: center;
+}
+
+.button-result{
+    border: none;
 }
 
 .string, 
@@ -100,12 +111,18 @@ body {
     font-size: 40px;
     width: 250px;
     height: 50px;
+    display: grid;
+    justify-self: end;
 }
 .result{
     font-size: 40px;
     width: 250px;
     height: 100px;
+    justify-self: start;
 }
 span{
+    /* justify-items: start; */
     line-height: 40px;
+    padding-left: 20px;
+    align-self: center;
 }
