@@ -198,7 +198,7 @@ let questons3 = [
     }
 ]
 
-//Основная функция
+//Main
 function basic(){
     switch (page) {
         case 0:
@@ -226,6 +226,7 @@ function basic(){
     }
 }
 
+//Вывод вопросов
 function test(){
     root.insertAdjacentHTML('afterend', `<div class="button-box"><button class="button" id="button">Ответить</button></div>`)
     console.log(`${result + total}`)
@@ -312,6 +313,7 @@ function test(){
     button.addEventListener('click', e)
 }    
 
+//Стартовый экран
 function startPage(){
 
     root.insertAdjacentHTML('afterbegin', `<h1 class="start">Проверка знаний</h1>`)
